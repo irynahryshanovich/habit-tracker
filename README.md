@@ -5,7 +5,7 @@
 ## Features
 
 - **Add Habits:**
-  You can add a habit to the current date using the **"Add" button**.
+  You can add a habit to the current date using the **"Add"** button.
 
 - **Habit Visibility:**
   - Habits will appear on the day they are added and every subsequent day going forward.
@@ -18,3 +18,5 @@
   The app uses two MongoDB collections:
   - One for created habits.
   - Another for completed habits, keeping completion data organized and separate.
+
+Check the Habits app online [here](https://habit-tracker-025l.onrender.com).
