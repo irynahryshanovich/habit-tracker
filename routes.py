@@ -33,10 +33,9 @@ def index():
     # they added date either today or earlier
     habits_on_date = current_app.db.habits.find({"added": {"$lte": selected_date}})
 
-    completions = [
-        habit["habit"]
-        for habit in current_app.db.completions.find({"date": selected_date})
-    ]
+    # read habit completions from MongoDB
+    completions = [habit["habit"] for habit in current_app.db.completions.find({"date": selected_date})]
+
     return render_template(
         "index.html",
         habits=habits_on_date,
@@ -65,10 +64,10 @@ def add_habit():
 @pages.post("/complete")
 def complete():
     date_string = request.form.get("date")
+    date = datetime.datetime.fromisoformat(date_string)
     # habitId linking two collections in MongoDB
     habit = request.form.get("habitId")
-    date = datetime.datetime.fromisoformat(date_string)
-
+    # adding a new completion to MongoDB
     current_app.db.completions.insert_one({"date": date, "habit": habit})
 
     # With url_for say habits.index because accessing a sub route of the blueprint

@@ -18,8 +18,7 @@ def create_app():
         print("Pinged your deployment. You successfully connected to MongoDB!")
     except Exception as e:
         print(e)
-
     app.db = client.get_default_database()
-    app.register_blueprint(pages)
 
+    app.register_blueprint(pages)
     return app
