@@ -1,0 +1,8 @@
+venv/
+.vscode/
+.env
+
+*.pyc
+__pycache__/
+
+data-model.drawio
